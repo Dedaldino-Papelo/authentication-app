@@ -22,12 +22,12 @@ const { userInfo } = useSelector((state) => state.userReducer)
           <Link style={{color: '#fff', margin: '10px', textDecoration: 'none'}} to={`/login`} >Login</Link>
           <Link style={{color: '#fff', margin: '10px', textDecoration: 'none'}} to={`/register`} >Register</Link>
           
-          {userInfo ? (
+          {userInfo && userInfo.Name ? (
             <Link to='#' onClick={logoutHandler} style={{color: '#fff', margin: '10px', textDecoration: 'none'}} >Logout</Link>
           ): ''}
           
         </div>
-        <span>{userInfo ? `Welcome ${userInfo.Name}` : ''}</span> 
+        <span>{userInfo && userInfo.Name ? 'Logged In as ' + userInfo.Name : ''}</span> 
       </div>
     </div>
   )
